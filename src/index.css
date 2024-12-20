@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  /*safe placement*/
+  .justify-safe-center {
+    justify-content: safe center;
+  }
+  .items-safe-center {
+    align-items: safe center;
+  }
+
+  /*Static app bgs*/
+  .appBgSm {
+    background: linear-gradient(
+      to bottom,
+      rgba(64, 0, 0, 0.4),
+      rgba(128, 0, 0, 0.6),
+      rgba(255, 0, 0, 0.8)
+    );
+    backdrop-filter: blur(10px);
+  }
+
+  .appBgMd {
+    background: radial-gradient(
+      circle at 50% 90%,
+      rgba(255, 0, 0, 0.8),
+      rgba(128, 0, 0, 0.6),
+      rgba(64, 0, 0, 0.4)
+    );
+    backdrop-filter: blur(10px);
+  }
+
+  /*
+  circle shape for arc
+  cut the disk
+  can hover 
+  */
+  .circle {
+    clip-path: ellipse(50% 100% at 50% 100%);
+  }
+
+  .revCircleMd {
+    clip-path: ellipse(50% 100% at 50% 0%);
+  }
+
+  .resetClip {
+    clip-path: none;
+  }
+
+  /*xl > hide details button shape*/
+  /*from: https://bennettfeely.com/clippy
+  */
+  .clipHideBtn {
+    clip-path: polygon(100% 0%, 70% 50%, 100% 100%, 30% 100%, 0% 50%, 30% 0%);
+  }
+
+  /*from: https://bennettfeely.com/clippy
+  */
+  .clipHideBtn-hover {
+    clip-path: polygon(100% 0%, 60% 50%, 100% 100%, 40% 100%, 0% 50%, 40% 0%);
+  }
+
+  /*Animations*/
+  @keyframes enter {
+    0% {
+      height: 0;
+    }
+
+    100% {
+      height: 100%;
+    }
+  }
+
+  @keyframes leave {
+    0% {
+      height: 100%;
+    }
+
+    100% {
+      height: 0;
+    }
+  }
+
+  @keyframes enter-xl {
+    0% {
+      left: 0;
+      width: 0;
+      opacity: 0;
+    }
+
+    100% {
+      width: 100%;
+      opacity: 100%;
+    }
+  }
+
+  @keyframes leave-xl {
+    0% {
+      width: 100%;
+      opacity: 100%;
+    }
+
+    100% {
+      width: 0;
+      left: 0;
+      opacity: 0;
+    }
+  }
+
+  .details-enter {
+    animation: enter 1.4s ease-out forwards;
+    overflow: hidden;
+  }
+
+  .details-leave {
+    animation: leave 1.4s ease-in forwards;
+    overflow: hidden;
+  }
+
+  .details-enter--xl {
+    animation: enter-xl 0.8s ease-out forwards;
+    overflow: hidden;
+  }
+
+  .details-leave--xl {
+    animation: leave-xl 0.8s ease-in forwards;
+    overflow: hidden;
+  }
+}
