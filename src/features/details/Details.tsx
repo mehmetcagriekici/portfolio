@@ -1,10 +1,8 @@
 //imports
 import Error from "../../components/Error";
 import { DETAILS_DISPLAY_ERROR } from "../../utils/constants";
-import EducationDetails from "../education/EducationDetails";
 import ExperienceDetails from "../experience/ExperienceDetails";
 import PersonalDetails from "../personal_information/PersonalDetails";
-import ProfessionalDetails from "../professional_experience/ProfessionalDetails";
 import { useDetails } from "./useDetails";
 
 function Details() {
@@ -18,23 +16,21 @@ function Details() {
   const [feature] = id.split("_");
 
   return (
+    //animation and positioning, full screen
+    //center the inner container
     <div
-      className={`absolute z-50 top-0 left-1/2 -translate-x-1/2 h-full w-full ${
+      className={`${
         isAboutToLeave
           ? "details-leave xl:details-leave--xl"
           : isDetailsOn
           ? "details-enter xl:details-enter--xl"
           : ""
-      } md:z-0 xl:z-50`}
+      } absolute top-0 left-0 z-50 h-dvh w-dvw flex justify-center items-center bg-black/85`}
     >
       {feature === "personal" ? (
         <PersonalDetails />
-      ) : feature === "education" ? (
-        <EducationDetails />
       ) : feature === "experience" ? (
         <ExperienceDetails />
-      ) : feature === "professional" ? (
-        <ProfessionalDetails />
       ) : (
         <Error errorMessage={DETAILS_DISPLAY_ERROR} />
       )}

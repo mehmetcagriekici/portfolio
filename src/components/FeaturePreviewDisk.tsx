@@ -5,21 +5,17 @@ import { FeatureDiskProps } from "../utils/types";
 //parent container component to place, and to position feature cards
 function FeaturePreviewDisk({
   children,
-  styles: {
-    bg,
-    responsive_width,
-    responsive_height,
-    z,
-    responsive_border,
-    display,
-    bottom,
-  },
+  styles: { outerContainer, innerContainer },
 }: FeatureDiskProps) {
   return (
     <div
-      className={`absolute left-1/2 md:bottom-0 -translate-x-1/2 overflow-y-auto md:overflow-hidden md:circle ${bottom} ${responsive_border} ${responsive_height} ${z} ${bg} ${responsive_width}`}
+      className={`absolute diskBgSm w-full xl:m-2 xl:rounded-lg xl:diskBgXl ${outerContainer}`}
     >
-      <div className={`relative w-full h-full ${display}`}>{children}</div>
+      <div
+        className={`relative w-full h-full flex flex-col justify-safe-center items-safe-center gap-3 ${innerContainer}`}
+      >
+        {children}
+      </div>
     </div>
   );
 }

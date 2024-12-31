@@ -1,5 +1,4 @@
 //imports
-import { useDetails } from "../features/details/useDetails";
 import { FeatureScreenProps } from "../utils/types";
 import Error from "./Error";
 import Loader from "./Loader";
@@ -9,21 +8,11 @@ function FeaturePreviewScreen({
   isLoading,
   error,
 }: FeatureScreenProps) {
-  const { id } = useDetails();
-  const [feature] = id.split("_");
-
   if (isLoading) return <Loader />;
   if (error) return <Error errorMessage={error} />;
-
-  let bg = "";
-
-  if (feature === "personal") bg = "bg-purple-500/80 xl:bg-purple-900/90";
-  if (feature === "education") bg = "bg-sky-500/80";
-  if (feature === "experience") bg = "bg-yellow-500/80";
-  if (feature === "professional") bg = "";
-
+  //inner details container
   return (
-    <div className={`h-full w-full relative radius-sm shadow-sm ${bg}`}>
+    <div className="relative h-[94%] w-[90%] bg-indigo-900 border-4 border-indigo-500/50 rounded-lg overflow-hidden overflow-y-auto">
       {children}
     </div>
   );

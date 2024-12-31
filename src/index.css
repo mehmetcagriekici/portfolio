@@ -1,7 +1,11 @@
+/*default font family*/
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/*custom styles*/
 @layer utilities {
   /*safe placement*/
   .justify-safe-center {
@@ -11,25 +15,46 @@
     align-items: safe center;
   }
 
+  /*Static disk bgs*/
+  .diskBgSm {
+    background: linear-gradient(
+      120deg,
+      rgba(4, 4, 4, 0.2) 60%,
+      rgba(16, 16, 16, 0.8)
+    );
+  }
+
+  .diskBgXl {
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba(64, 64, 64, 0.4),
+      rgba(32, 32, 32, 0.8) 30%,
+      rgba(16, 16, 16, 0.4) 90%
+    );
+  }
+
   /*Static app bgs*/
+  /*
+  background image link: https://unsplash.com/photos/milky-way-galaxy-HWXSmUoP66E
+  */
   .appBgSm {
     background: linear-gradient(
-      to bottom,
-      rgba(64, 0, 0, 0.4),
-      rgba(128, 0, 0, 0.6),
-      rgba(255, 0, 0, 0.8)
-    );
-    backdrop-filter: blur(10px);
+        240deg,
+        rgba(255, 255, 255, 0.6),
+        rgba(16, 64, 255, 0.2),
+        rgba(255, 64, 16, 0.3)
+      ),
+      url("bg-small.jpg");
   }
 
   .appBgMd {
-    background: radial-gradient(
-      circle at 50% 90%,
-      rgba(255, 0, 0, 0.8),
-      rgba(128, 0, 0, 0.6),
-      rgba(64, 0, 0, 0.4)
-    );
-    backdrop-filter: blur(10px);
+    background: linear-gradient(
+        30deg,
+        rgba(255, 255, 255, 0.6),
+        rgba(16, 64, 255, 0.2),
+        rgba(255, 64, 16, 0.3)
+      ),
+      url("bg-large.jpg");
   }
 
   /*
@@ -109,6 +134,34 @@
     }
   }
 
+  @keyframes personalCardEnterFrame {
+    0% {
+      opacity: 0;
+      height: 0;
+    }
+
+    100% {
+      opacity: 1;
+      height: 20%;
+    }
+  }
+
+  @keyframes experienceCardEnterFrame {
+    0% {
+      height: 0;
+      opacity: 0;
+    }
+
+    75% {
+      height: 90%;
+    }
+
+    100% {
+      height: 75%;
+      opacity: 1;
+    }
+  }
+
   .details-enter {
     animation: enter 1.4s ease-out forwards;
     overflow: hidden;
@@ -126,6 +179,16 @@
 
   .details-leave--xl {
     animation: leave-xl 0.8s ease-in forwards;
+    overflow: hidden;
+  }
+
+  .personalCardEnter {
+    animation: personalCardEnterFrame 1.8s ease-in forwards;
+    overflow: hidden;
+  }
+
+  .experienceCardEnter {
+    animation: experienceCardEnterFrame 1.6s ease forwards;
     overflow: hidden;
   }
 }

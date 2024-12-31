@@ -1,44 +1,40 @@
 //imports
 import FeaturePreviewCard from "../../components/FeaturePreviewCard";
 import FeaturePreviewDisk from "../../components/FeaturePreviewDisk";
-import {
-  COMMON_RESPONSIVE_BORDER,
-  COMMON_SMALL_CARD_BORDER,
-} from "../../utils/constants";
 import { usePersonal } from "./usePersonal";
 
 function Personal() {
-  const { personalData, showPersonalDetails, isLoading, error } = usePersonal();
+  //UI personal
+  const {
+    showPersonalDetails,
+    isLoading,
+    error,
+    personalData: {
+      card: { name, age, country },
+    },
+  } = usePersonal();
 
+  //click on the card
   function onClick() {
     showPersonalDetails();
   }
 
   //styles for the disk
   const styles = {
-    bg: "bg-purple-500",
-    z: "z-40",
-    bottom: "bottom-0",
-    responsive_height: "h-[12%] md:h-[16%] xl:h-[22%]",
-    responsive_width: "w-full md:w-[38%] xl:w-[22%]",
-    responsive_border: `${COMMON_RESPONSIVE_BORDER} md:border-indigo-500`,
-    display: "flex justify-center items-center md:items-end md:pb-3",
+    outerContainer:
+      "top-0 h-1/5 w-full personalCardEnter md:animate-personalCardEnterMd z-10 lg:top-[5%] lg:border-4 lg:border-stone-800 lg:w-[98%] lg:left-1/2 lg:-translate-x-1/2 lg:animate-lgDiskEnter xl:top-1/2 xl:left-0 xl:-translate-y-1/2 xl:translate-x-0 xl:h-3/5 xl:w-[40%] xl:border-slate-300/20",
+    innerContainer: "p-1 xl:h-1/2 xl:w-full xl:top-1/2 xl:-translate-y-1/2",
   };
 
   //styles for the card
-  //single
-  const cardStyles = {
-    bg: "bg-transparent md:hidden",
-    height: "h-[60%] md:h-[72%]",
-    width: "w-[88%] md:w-[62%]",
-    display: "flex flex-col justify-center items-center pb-2",
-    border: `${COMMON_SMALL_CARD_BORDER} border-purple-400 shadow-md`,
-    position: {
-      bottom: "52%",
-      left: "50%",
-      transform: "translate(-50%, 50%)",
-    },
-  };
+  const cardStyles =
+    "absolute h-full text-stone-300 flex flex-wrap gap-2 shrink grow justify-safe-center items-safe-center overflow-auto md:gap-3";
+
+  //card message
+  const cardMessage =
+    `My name is ${name}, I am ${age} years old, and I am from ${country}. As an autodidact, I've become a frontend developer through personal projects. I am looking forward to gain some professional experience. Click here to learn more about me.`.split(
+      " "
+    );
 
   return (
     <FeaturePreviewDisk styles={styles}>
@@ -47,19 +43,21 @@ function Personal() {
         isLoading={isLoading}
         error={error}
         styles={cardStyles}
-        feature="personal"
+        cardIndex={0}
       >
-        <div className="">
-          <h3 className="text-gray-800 text-xl md:text-2xl tracking-tighter font-bold">
-            {personalData.card.name}
-          </h3>
-          <h5 className="hidden md:flex justify-center">
-            {personalData.card.age}
-          </h5>
-          <p className="hidden md:flex justify-center">
-            {personalData.card.country}
-          </p>
-        </div>
+        {cardMessage.map((word, i) => (
+          <span key={i} className="flex">
+            {word.split("").map((chr, ix) => (
+              <span
+                className="animate-textEnter text-base md:text-2xl lg:text-3xl xl:text-xl"
+                style={{ animationDelay: `${ix * i + 120 * ix}ms` }}
+                key={`${i}_${ix}`}
+              >
+                {chr}
+              </span>
+            ))}
+          </span>
+        ))}
       </FeaturePreviewCard>
     </FeaturePreviewDisk>
   );

@@ -2,15 +2,7 @@
 import CardList from "../../components/CardList";
 import FeaturePreviewCard from "../../components/FeaturePreviewCard";
 import FeaturePreviewDisk from "../../components/FeaturePreviewDisk";
-import {
-  COMMON_CARD_LIST_ELEMENT_STYLES,
-  COMMON_CARD_LIST_STYLES,
-  COMMON_RESPONSIVE_BORDER,
-  COMMON_SMALL_CARD_BORDER,
-  SM_DEF_DISK_DISPLAY,
-} from "../../utils/constants";
-import { CALC_POSITIONS, CONVERT_LIST_TO_STR } from "../../utils/helpers";
-import { absolutePositions } from "../../utils/types";
+import { CONVERT_LIST_TO_STR } from "../../utils/helpers";
 import { useExperience } from "./useExperience";
 
 function Experience() {
@@ -24,26 +16,18 @@ function Experience() {
   }
 
   const cardsArray = Object.values(experienceData.cards);
-  const positions: absolutePositions[] = CALC_POSITIONS(cardsArray);
 
+  //disk (2 nested divs)
   const styles = {
-    bg: "bg-yellow-500",
-    z: "z-20",
-    bottom: "bottom-[29%]",
-    responsive_height: "h-[16%] md:h-[32%] xl:h-[48%]",
-    responsive_width: "w-full md:w-[78%] xl:w-[48%]",
-    responsive_border: `${COMMON_RESPONSIVE_BORDER} md:border-orange-500`,
-    display: `${SM_DEF_DISK_DISPLAY}`,
+    outerContainer:
+      "bottom-0 h-[75%] experienceCardEnter z-10 lg:bottom-1/2 lg:translate-y-[60%] lg:animate-lgDiskEnter xl:right-0 xl:top-1/2 xl:-translate-y-1/2 xl:h-4/5 xl:w-1/2 xl:border-4 xl:border-slate-300/20",
+    innerContainer:
+      "overflow-auto flex justify-safe-center items-safe-center lg:flex-row lg:flex-nowrap xl:overflow-hidden xl:overflow-y-auto xl:flex-col",
   };
 
-  //multiple
-  const cardStyles = {
-    bg: "bg-amber-200/30 md:hidden",
-    height: "min-h-[98%]",
-    width: "w-[90%]",
-    display: "flex flex-col justify-center items-center gap-3",
-    border: `${COMMON_SMALL_CARD_BORDER} border-2 border-yellow-400`,
-  };
+  //card (1 div)
+  const cardStyles =
+    "min-h-[30%] flex justify-safe-center items-safe-center lg:h-[80%] lg:min-w-[45%] lg:gap-3";
 
   return (
     <FeaturePreviewDisk styles={styles}>
@@ -53,8 +37,8 @@ function Experience() {
           isLoading={isLoading}
           error={error}
           onClick={() => onClick(card.id)}
-          styles={{ ...cardStyles, position: positions[i] }}
-          feature="experience"
+          styles={cardStyles}
+          cardIndex={i}
         >
           <CardList
             itemsArray={[
@@ -62,10 +46,6 @@ function Experience() {
               CONVERT_LIST_TO_STR(card.technologies),
               card.date,
             ]}
-            styles={{
-              ul: COMMON_CARD_LIST_STYLES,
-              li: COMMON_CARD_LIST_ELEMENT_STYLES,
-            }}
           />
         </FeaturePreviewCard>
       ))}

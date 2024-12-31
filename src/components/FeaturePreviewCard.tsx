@@ -1,6 +1,5 @@
 //imports
 import { FeatureCardProps } from "../utils/types";
-import CardButton from "./CardButton";
 import Error from "./Error";
 import Loader from "./Loader";
 
@@ -9,25 +8,24 @@ function FeaturePreviewCard({
   onClick,
   isLoading,
   error,
-  feature,
-  styles: { bg, height, width, display, border, position },
+  styles,
+  cardIndex,
 }: FeatureCardProps) {
   if (isLoading) return <Loader />;
   if (error) return <Error errorMessage={error} />;
 
   return (
-    <>
-      <CardButton feature={feature} onClick={onClick} position={position} />
-      <div
-        className={`rounded-md hover:cursor-pointer ${bg} ${height} ${width} ${border} ${display}`}
-        onClick={onClick}
-      >
-        {children}
-        <p className="text-black uppercase tracking-tighter font-black">
-          Click here to see the details
-        </p>
-      </div>
-    </>
+    <div
+      className={`w-full border-b-2 border-stone-800/20 hover:cursor xl:border-none ${styles} ${
+        cardIndex % 2 === 0
+          ? "lg:animate-lgCardEnterTop"
+          : "lg:animate-lgCardEnterBot"
+      }`}
+      style={{ animationDelay: `${cardIndex * 50}ms` }}
+      onClick={onClick}
+    >
+      {children}
+    </div>
   );
 }
 

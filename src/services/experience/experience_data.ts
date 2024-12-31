@@ -20,7 +20,7 @@ export const experience_data: ExperienceData = {
       id: "experience_data__2",
       name: "Carmic",
       date: "April 2024",
-      technologies: ["Vue,", "Pinia", "Tailwind", "Supabase", "Vue Router"],
+      technologies: ["Vue", "Pinia", "Tailwind", "Supabase", "Vue Router"],
     },
 
     experience_data__3: {

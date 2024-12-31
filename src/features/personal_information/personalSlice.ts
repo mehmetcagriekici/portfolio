@@ -8,7 +8,6 @@ const initialState: PersonalState = {
     card: {
       id: "",
       name: "",
-      gender: "",
       age: -1,
       country: "",
     },

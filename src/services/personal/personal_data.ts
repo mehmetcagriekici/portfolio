@@ -6,7 +6,6 @@ export const personal_data: PersonalData = {
     name: "Mehmet Cagri Ekici",
     age: 25,
     country: "Turkey",
-    gender: "male",
     id: "personal_data",
   },
   screen: {

@@ -1,26 +1,4 @@
 //This file will be removed from the app, after V1 (server)
-//education data
-interface EducationCardData {
-  id: string;
-  name: string;
-  date: string;
-  owner: string;
-  platform: string;
-}
-
-interface EducationScreenData extends EducationCardData {
-  progress: string;
-  certificate: string;
-  link: string;
-  summary: string;
-}
-export interface EducationData {
-  cards: {
-    [key: string]: EducationCardData;
-  };
-  screens: { [key: string]: EducationScreenData };
-}
-
 //experience data
 interface ExperienceCardData {
   id: string;
@@ -53,7 +31,6 @@ export interface PersonalData {
     name: string;
     age: number;
     country: string;
-    gender: string;
     id: string;
   };
   screen: {
@@ -64,29 +41,5 @@ export interface PersonalData {
     hobbies: string[];
     photo: string;
     socials: personalKeyValueData[];
-  };
-}
-
-//professional data type
-interface ProfessionalCard {
-  id: string;
-  name: string;
-  date: string;
-  customer: string;
-  type: string;
-}
-
-interface ProfessionalScreen extends ProfessionalCard {
-  summary: string;
-  link: string;
-}
-
-export interface ProfessionalData {
-  cards: {
-    [key: string]: ProfessionalCard;
-  };
-
-  screens: {
-    [key: string]: ProfessionalScreen;
   };
 }

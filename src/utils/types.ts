@@ -1,28 +1,10 @@
+//imports
+import React from "react";
+
 interface DataCore {
   id: string;
   name: string;
   date: string;
-}
-
-///FEATURE EDUCATION
-export interface EducationCard extends DataCore {
-  owner: string;
-  platform: string;
-}
-
-interface EducationScreen extends EducationCard {
-  progress: string;
-  link: string;
-  summary: string;
-}
-
-export interface EducationData {
-  cards: { [key: string]: EducationCard };
-  screens: { [key: string]: EducationScreen };
-}
-
-export interface EducationState {
-  educationData: EducationData;
 }
 
 ///FEATURE EXPERIENCE
@@ -46,32 +28,11 @@ export interface ExperienceState {
   experienceData: ExperienceData;
 }
 
-///FEATURE PROFESIONAL
-export interface ProfessionalCard extends DataCore {
-  customer: string;
-  type: string;
-}
-
-interface ProfessionalScreen extends ProfessionalCard {
-  summary: string;
-  link: string;
-}
-
-export interface ProfessionalData {
-  cards: { [key: string]: ProfessionalCard };
-  screens: { [key: string]: ProfessionalScreen };
-}
-
-export interface ProfessionalState {
-  professionalData: ProfessionalData;
-}
-
 ///FEATURE PERSONAL
 interface PersonalCard {
   name: string;
   age: number;
   country: string;
-  gender: string;
   id: string;
 }
 
@@ -109,43 +70,28 @@ export type absolutePositions = {
 };
 
 export interface FeatureScreenProps {
-  children: JSX.Element;
+  children: React.ReactNode;
   isLoading: boolean;
   error: string;
 }
 
 export interface FeatureDiskProps {
   //JSX.Element only in Personal
-  children: JSX.Element[] | JSX.Element;
+  children: React.ReactNode;
   //styles
-  styles: {
-    bg: string;
-    z: string;
-    bottom: string;
-    responsive_width: string;
-    responsive_height: string;
-    responsive_border: string;
-    display: string;
-  };
+  styles: { outerContainer: string; innerContainer: string };
 }
 
 export interface FeatureCardProps {
-  children: JSX.Element;
+  children: React.ReactNode;
   onClick: () => void;
   //data
   isLoading: boolean;
   error: string;
   //styles
-  styles: {
-    bg: string;
-    height: string;
-    width: string;
-    display: string;
-    border: string;
-    position: absolutePositions;
-  };
-  //card shape
-  feature: string;
+  styles: string;
+  //index
+  cardIndex: number;
 }
 
 export interface ProgressChartProps {
@@ -164,10 +110,6 @@ export interface DetailsListProps {
 
 export interface CardListProps {
   itemsArray: string[];
-  styles: {
-    ul: string;
-    li: string;
-  };
 }
 
 export interface SliderProps {
@@ -186,4 +128,9 @@ export interface CardButtonProps {
   feature: string;
   position: absolutePositions;
   onClick: () => void;
+}
+
+export interface HideBtnProps {
+  onClick: () => void;
+  children: React.ReactNode;
 }
