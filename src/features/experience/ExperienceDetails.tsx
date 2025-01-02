@@ -20,36 +20,40 @@ function ExperienceDetails() {
     closeDetails();
   }
 
+  //hide images container if there are no images
+  const noImages = current.images.length ? "" : "hidden";
+
   return (
     <FeaturePreviewScreen isLoading={isLoading} error={error}>
+      {/*absolute*/}
       <HideBtn onClick={onClick}>hide details</HideBtn>
 
-      <div className="">
-        <Slider imagesArray={current.images} />
-      </div>
+      {/*flexbox*/}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[92%] w-full flex flex-col justify-safe-center items-safe-center bg-gradient-to-b from-indigo-900/40 to-indigo-300/50 border-t-2 border-indigo-900/90 overflow-y-auto lg:h-[90%]">
+        {/*images*/}
+        <div
+          className={`${noImages} w-5/6 border-b-2 border-indigo-600 lg:h-1/2`}
+        >
+          <Slider imagesArray={current.images} />
+        </div>
 
-      <div className="">
-        <p>{current.summary}</p>
-      </div>
+        <div className="w-4/5 text-indigo-100 tracking-widest leading-relaxed p-2 border-b-2 border-indigo-600 md:text-xl lg:text-2xl">
+          <p>{current.summary}</p>
+        </div>
 
-      <div className="">
+        {/*Link to github link to netlify*/}
         <DetailsList
           itemsArray={[
-            { key: "project name: ", value: current.name, link: false },
-            { key: "project date: ", value: current.date, link: false },
+            { key: "project name:", value: current.name, link: false },
+            { key: "project date:", value: current.date, link: false },
             {
-              key: "project contributers: ",
+              key: "project contributors:",
               value: CONVERT_LIST_TO_STR(current.contributers),
               link: false,
             },
-            { key: "project link: ", value: current.link, link: true },
+            { key: "github", value: current.link, link: true },
+            { key: "netlify", value: current.deploy, link: true },
           ]}
-          colors={{
-            listBorder: "border-yellow-300/50 xl:border-slate-500",
-            anchorBorder: "border-yellow-700/30 xl:border-transparent",
-            anchorBackground: "bg-yellow-200/40 bg-cyan-400/30",
-            text: "text-slate-900",
-          }}
         />
       </div>
     </FeaturePreviewScreen>

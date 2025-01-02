@@ -12,6 +12,7 @@ interface ExperienceScreenData extends ExperienceCardData {
   summary: string;
   contributers: string[];
   link: string;
+  deploy: string;
 }
 
 export interface ExperienceData {

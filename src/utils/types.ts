@@ -17,6 +17,7 @@ interface ExperinceScreen extends ExperienceCard {
   summary: string;
   contributers: string[];
   link: string;
+  deploy: string;
 }
 
 export interface ExperienceData {
@@ -100,12 +101,6 @@ export interface ProgressChartProps {
 
 export interface DetailsListProps {
   itemsArray: { key: string; value: string; link: boolean }[];
-  colors: {
-    listBorder: string;
-    anchorBorder: string;
-    anchorBackground: string;
-    text: string;
-  };
 }
 
 export interface CardListProps {
@@ -117,7 +112,10 @@ export interface SliderProps {
 }
 
 export interface StarRatingProps {
-  rating: number;
+  skill: {
+    skill: string;
+    rating: number;
+  };
 }
 
 export interface ErrorProps {

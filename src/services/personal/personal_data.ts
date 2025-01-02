@@ -17,15 +17,15 @@ export const personal_data: PersonalData = {
       { key: "gender", value: "male" },
     ],
     skills: [
-      { skill: "HTML", rating: 6 },
-      { skill: "CSS", rating: 8 },
-      { skill: "JavaScript", rating: 8.5 },
-      { skill: "React", rating: 7.5 },
-      { skill: "Tailwind", rating: 6 },
-      { skill: "SASS", rating: 5 },
-      { skill: "Redux", rating: 6 },
-      { skill: "TypeScript", rating: 6.5 },
-      { skill: "Vue", rating: 4 },
+      { skill: "HTML", rating: 4 },
+      { skill: "CSS", rating: 4 },
+      { skill: "JavaScript", rating: 5 },
+      { skill: "React", rating: 5 },
+      { skill: "Tailwind", rating: 3 },
+      { skill: "SASS", rating: 2 },
+      { skill: "Redux", rating: 4 },
+      { skill: "TypeScript", rating: 3 },
+      { skill: "Vue", rating: 1 },
     ],
     spoken_languages: ["Turkish", "English"],
     hobbies: [
@@ -40,15 +40,19 @@ export const personal_data: PersonalData = {
       "coding",
       "binge watching tv series and watching movies",
     ],
-    photo: "fake_pp.png",
+    photo: "pp.jpg",
     socials: [
       { key: "gmail", value: "mehmetcagriekici@gmail.com" },
       {
         key: "codewars",
         value: "https://www.codewars.com/users/mehmetcagriekici",
       },
-      { key: "github", value: "" },
-      { key: "linkedin", value: "" },
+      { key: "github", value: "https://github.com/mehmetcagriekici" },
+      {
+        key: "linkedin",
+        value:
+          "https://www.linkedin.com/in/mehmet-%C3%A7a%C4%9Fr%C4%B1-ekici-3a0489221?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      },
     ],
   },
 };

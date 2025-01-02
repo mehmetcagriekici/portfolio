@@ -74,6 +74,7 @@ export const experience_data: ExperienceData = {
         "You've ever played that game when you were a child, with your friends, around a table, with a notebook, a pen and a book, you'd open the book, and check the page number, and try to conquer the squared notebook page with the last digit of the page number? clickPaint is a demonstration of that child game with a dice. You can play it with up to 3 more players. Roll the dice, click on the squares and annoy your friends! Don't forget the best defense is a good offense.",
       contributers: ["Mehmet Cagri Ekici"],
       link: "https://github.com/mehmetcagriekici/clickpaint",
+      deploy: "https://clickpaint.netlify.app",
     },
 
     experience_data__1: {
@@ -92,6 +93,7 @@ export const experience_data: ExperienceData = {
         "We love to judge people, we love to gossip, and critisize our friends behind their backs. Now imagine and application in which you can make comments about your friends behaviors, appearances and intellects, and acutally rate them with your friends. And then, after reaching a certain amount of gossip, you can see a summary with a graph and and an average of what a person is. Create a key, share it with your other friends, and together eat your other other friend alive, and save the results for certain joy.",
       contributers: ["Mehmet Cagri Ekici"],
       link: "https://github.com/mehmetcagriekici/SafeGossip",
+      deploy: "https://safegossip.netlify.app",
     },
 
     experience_data__2: {
@@ -104,6 +106,7 @@ export const experience_data: ExperienceData = {
         "This is an app to build a journal with images. You can create chapters, and sections, divide your story in any amount of parts as you like. I've used Supabase for backend, and unfortunately the server is stopped serving due to long time deactivation. The frontend code is still valid though, this is why I've still added this project to my portfolio, but unfortunately there are no images to show.",
       contributers: ["Mehmet Cagri Ekici"],
       link: "https://github.com/mehmetcagriekici/carmic",
+      deploy: "",
     },
 
     experience_data__3: {
@@ -116,6 +119,7 @@ export const experience_data: ExperienceData = {
         "It is a simple calculator which uses Math.js to evalute the operations.",
       contributers: ["Mehmet Cagri Ekici"],
       link: "https://github.com/mehmetcagriekici/my_simple_calculator",
+      deploy: "https://callscalculator.netlify.app",
     },
 
     experience_data__4: {
@@ -141,6 +145,7 @@ export const experience_data: ExperienceData = {
         "If you've ever needed a secret diary, this website will offer you one better. A secret and an encrypted journal. In this app, your entries will be converted to binary numbers after they are encrypted with a certain encryption method. ",
       contributers: ["Mehmet Cagri Ekici"],
       link: "https://github.com/mehmetcagriekici/rotjournal",
+      deploy: "https://rotjournal.netlify.app",
     },
 
     experience_data__5: {
@@ -157,6 +162,7 @@ export const experience_data: ExperienceData = {
         "My first React project, I wanted to build an app to introduce Norway, but I didn't build the data. It's a powerpoint website, awating data to be created and included.",
       contributers: ["Mehmet Cagri Ekici"],
       link: "https://github.com/mehmetcagriekici/norksapp",
+      deploy: "",
     },
 
     experience_data__6: {
@@ -169,6 +175,7 @@ export const experience_data: ExperienceData = {
         "I just wanted to test my learning skills, Learn the methods, the formulas and convert them to code. So far, it worked pretty well, for some one who just learned about matrices.",
       contributers: ["Mehmet Cagri Ekici"],
       link: "https://github.com/mehmetcagriekici/matrices_operations_class",
+      deploy: "",
     },
   },
 };

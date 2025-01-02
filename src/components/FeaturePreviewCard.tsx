@@ -16,7 +16,7 @@ function FeaturePreviewCard({
 
   return (
     <div
-      className={`w-full border-b-2 border-stone-800/20 hover:cursor xl:border-none ${styles} ${
+      className={`w-full border-b-2 border-stone-800/20 hover:cursor-pointer xl:border-none ${styles} ${
         cardIndex % 2 === 0
           ? "lg:animate-lgCardEnterTop"
           : "lg:animate-lgCardEnterBot"

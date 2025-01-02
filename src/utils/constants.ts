@@ -9,9 +9,6 @@ export const EXPERIENCE_DATA_FETCH_ERROR =
 export const DETAILS_DISPLAY_ERROR =
   "An error occured, trying to display the details. No Feature Found!";
 
-export const SLIDER_NO_IMAGES_MESSAGE =
-  "We are sorry to inform you that we are not able to show you any images for this item you've just opened. This is not an error, we've decided either the visual expression was not necessary, or we weren't able to find the images of this part.";
-
 export const DETAILS_ANIMATION_DURATION = 1500; //ms
 
 //styles
