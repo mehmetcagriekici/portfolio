@@ -44,7 +44,7 @@
         rgba(16, 64, 255, 0.2),
         rgba(255, 64, 16, 0.3)
       ),
-      url("./bg-small.jpg");
+      url("../public/bg-small.jpg");
   }
 
   .appBgMd {
@@ -54,7 +54,7 @@
         rgba(16, 64, 255, 0.2),
         rgba(255, 64, 16, 0.3)
       ),
-      url("./bg-large.jpg");
+      url("../public/bg-large.jpg");
   }
 
   /*
