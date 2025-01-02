@@ -40,7 +40,7 @@ export const personal_data: PersonalData = {
       "coding",
       "binge watching tv series and watching movies",
     ],
-    photo: "pp.jpg",
+    photo: "../images/pp.jpg",
     socials: [
       { key: "gmail", value: "mehmetcagriekici@gmail.com" },
       {
