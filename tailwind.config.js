@@ -17,7 +17,7 @@ export default {
 
         personalCardEnterFrameMd: {
           "0%": { opacity: "0", height: "0" },
-          "100%": { ppacity: "1", height: "20%" },
+          "100%": { opacity: "1", height: "20%" },
         },
 
         lgDiskFrame: {
