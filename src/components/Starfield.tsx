@@ -51,12 +51,12 @@ const moveStars = ({
 function generateStars({
   width,
   height,
+  starCount,
 }: {
   width: number;
   height: number;
+  starCount: number;
 }): star[] {
-  //responsive star count
-  const starCount = width < MD ? 100 : height < LG ? 200 : 300;
   //responsive starSize
   const sizeMultiplier = width < MD ? 2 : width < LG ? 3 : 4;
 
@@ -66,14 +66,14 @@ function generateStars({
   for (let i = 0; i < starCount; i++) {
     const newStar: star = {
       id: i,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
+      x: Math.random() * width,
+      y: Math.random() * height,
       size: Math.random() * sizeMultiplier + 1,
       duration: Math.random() * 2 + 1,
       delay: Math.random() * 5,
       //coord change rates
-      velocityX: Math.random() * 0.5 - 0.25, // Random horizontal speed
-      velocityY: Math.random() * 0.5 - 0.25, // Random vertical speed
+      velocityX: Math.random() * 2 - 1, // Random horizontal speed
+      velocityY: Math.random() * 2 - 1, // Random vertical speed
     };
 
     store.push(newStar);
@@ -91,25 +91,46 @@ function Starfield() {
     height: window.innerHeight,
   });
 
+  //responsive star count
+  const starCount =
+    dimensions.width < MD ? 150 : dimensions.width < LG ? 200 : 250;
+
   //function to update dimensions on screen change and update the stars
   const updateDimensions = useCallback(() => {
-    setDimensions({ width: window.innerWidth, height: window.innerHeight });
-    setStars(
-      generateStars({ width: window.innerWidth, height: window.innerHeight })
+    //new width
+    const nw = window.innerWidth;
+    //new height
+    const nh = window.innerHeight;
+
+    //update star positions
+    setStars((stars) =>
+      stars.map((star) => ({
+        ...star,
+        x: (star.x / dimensions.width) * nw,
+        y: (star.y / dimensions.height) * nh,
+      }))
     );
-  }, []);
+
+    setDimensions({ width: nw, height: nh });
+  }, [dimensions]);
 
   //update stars, whenever the window size changes
   useEffect(() => {
-    //init
-    updateDimensions();
+    //init stars
+    setStars(
+      generateStars({
+        width: dimensions.width,
+        height: dimensions.height,
+        starCount,
+      })
+    );
 
     //watch
     window.addEventListener("resize", updateDimensions);
 
     //clear
     return () => window.removeEventListener("resize", updateDimensions);
-  }, [updateDimensions]);
+  }, [dimensions.height, dimensions.width, updateDimensions, starCount]);
 
   //move stars
   useEffect(() => {
@@ -144,7 +165,14 @@ function Starfield() {
               height: `${star.size}px`,
               top: `${star.y}%`,
               left: `${star.x}%`,
-              boxShadow: "0 0 3px 2px rgba(255, 255, 255, 0.3)", //glow
+              boxShadow: `
+              ${-star.velocityX * 10}px ${
+                -star.velocityY * 10
+              }px 20px rgba(255, 255, 255, 0.6),
+              ${-star.velocityX * 20}px ${
+                -star.velocityY * 20
+              }px 40px rgba(255, 255, 255, 0.3)
+            `,
             }}
             animate={{
               opacity: [0, 1, 0.3],

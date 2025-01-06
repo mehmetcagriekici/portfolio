@@ -1,23 +1,50 @@
 //imports
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
-import { DETAILS_ANIMATION_DURATION } from "../../utils/constants";
-import { displayLeaveAnimation, hideDetails } from "./detailsSlice";
+import {
+  hideDetails,
+  hideImageModal,
+  hideExp,
+  showExp,
+  showImageModal,
+} from "./detailsSlice";
 
 //only used to display the details, and
 //which details to display
 export function useDetails() {
-  const { id, isDetailsOn, isAboutToLeave } = useAppSelector(
-    (state) => state.details
-  );
+  const { id, isDetailsOn } = useAppSelector((state) => state.details);
   const dispatch = useAppDispatch();
 
+  //open details, on feature custom hooks: useExperience, usePersonal
   function closeDetails() {
-    dispatch(displayLeaveAnimation());
-
-    setTimeout(() => {
-      dispatch(hideDetails());
-    }, DETAILS_ANIMATION_DURATION);
+    dispatch(hideDetails());
   }
 
-  return { id, isDetailsOn, closeDetails, isAboutToLeave };
+  //show image modal
+  function openImg(currSrc: string) {
+    dispatch(showImageModal(currSrc));
+  }
+
+  //close img modal
+  function closeImg() {
+    dispatch(hideImageModal());
+  }
+
+  //to toggle between personal and experience
+  function openExp() {
+    dispatch(showExp());
+  }
+
+  function openPersonal() {
+    dispatch(hideExp());
+  }
+
+  return {
+    id,
+    isDetailsOn,
+    closeDetails,
+    openImg,
+    closeImg,
+    openExp,
+    openPersonal,
+  };
 }

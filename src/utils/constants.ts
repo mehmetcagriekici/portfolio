@@ -9,11 +9,6 @@ export const EXPERIENCE_DATA_FETCH_ERROR =
 export const DETAILS_DISPLAY_ERROR =
   "An error occured, trying to display the details. No Feature Found!";
 
-export const DETAILS_ANIMATION_DURATION = 1500; //ms
-
-//styles
-export const DEF_IMG_STYLES = "h-full w-full object-cover select-none";
-
 //positions for card placement on the disk on different screens
 //bottom and left -> css values
 //transform -> tailwind style, to fix

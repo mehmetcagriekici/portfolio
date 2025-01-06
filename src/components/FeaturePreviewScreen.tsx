@@ -2,19 +2,28 @@
 import { FeatureScreenProps } from "../utils/types";
 import Error from "./Error";
 import Loader from "./Loader";
+import { motion } from "motion/react";
 
 function FeaturePreviewScreen({
   children,
   isLoading,
   error,
 }: FeatureScreenProps) {
+  //after v1: data is moved to the server
   if (isLoading) return <Loader />;
   if (error) return <Error errorMessage={error} />;
-  //inner details container
+
+  //details container
+  //under the FeaturePreviewDisk
   return (
-    <div className="relative h-[94%] w-[90%] bg-indigo-900 border-4 border-indigo-500/50 rounded-lg overflow-hidden overflow-y-auto">
+    <motion.div
+      className="bg-yellow-500/90 relative h-full w-full flex flex-col justify-safe-center items-safe-center gap-5 overflow-auto p-2 rounded-lg"
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.4 }}
+    >
       {children}
-    </div>
+    </motion.div>
   );
 }
 

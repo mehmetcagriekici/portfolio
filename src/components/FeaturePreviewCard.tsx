@@ -2,30 +2,28 @@
 import { FeatureCardProps } from "../utils/types";
 import Error from "./Error";
 import Loader from "./Loader";
+import { motion } from "motion/react";
 
 function FeaturePreviewCard({
   children,
   onClick,
   isLoading,
-  error,
-  styles,
   cardIndex,
+  error,
 }: FeatureCardProps) {
   if (isLoading) return <Loader />;
   if (error) return <Error errorMessage={error} />;
 
   return (
-    <div
-      className={`w-full border-b-2 border-stone-800/20 hover:cursor-pointer xl:border-none ${styles} ${
-        cardIndex % 2 === 0
-          ? "lg:animate-lgCardEnterTop"
-          : "lg:animate-lgCardEnterBot"
-      }`}
-      style={{ animationDelay: `${cardIndex * 50}ms` }}
+    <motion.div
+      initial={{ scale: 0 }}
+      animate={{ scale: 1 }}
+      transition={{ duration: 0.3, delay: cardIndex * 0.3 }}
+      className={`flex justify-safe-center items-safe-center flex-col h-1/6 w-full shrink-0 xl:h-1/3 xl:w-1/5`}
       onClick={onClick}
     >
       {children}
-    </div>
+    </motion.div>
   );
 }
 

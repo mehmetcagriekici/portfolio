@@ -1,21 +1,18 @@
 //imports
 import Starfield from "./components/Starfield";
-import Details from "./features/details/Details";
-import { useDetails } from "./features/details/useDetails";
 import Experience from "./features/experience/Experience";
 import Personal from "./features/personal_information/Personal";
+import { useAppSelector } from "./hooks/reduxHooks";
 
 function App() {
-  //hook for all other features
-  const { isDetailsOn } = useDetails();
-
+  //toggle
+  const { isExpOn } = useAppSelector((state) => state.details);
   return (
-    <div className="relative h-dvh w-dvw font-serif font-semibold text-sm text-center tracking-tight overflow-hidden appBgSm md:appBgMd ">
-      {isDetailsOn && <Details />}
+    <div className="relative h-dvh w-dvw font-pop font-semibold text-sm text-center tracking-tight overflow-hidden bg-black ">
       {/*Starfield animation*/}
-      {isDetailsOn || <Starfield />}
-      <Personal />
-      <Experience />
+      <Starfield />
+      {/*Display individually*/}
+      {isExpOn ? <Experience /> : <Personal />}
     </div>
   );
 }

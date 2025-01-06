@@ -22,13 +22,13 @@ const icons: {
 
 function DetailsList({ itemsArray }: DetailsListProps) {
   return (
-    <ul className="h-full w-4/5 flex flex-col justify-safe-center items-safe-center gap-2 md:text-xl lg:text-2xl">
+    <ul className="h-full w-full flex flex-col justify-safe-center items-safe-center gap-2 md:text-xl lg:text-2xl font-pop">
       {itemsArray.map(
         (item, i) =>
           item.value && (
             <li
               key={i}
-              className={`w-full flex flex-col justify-safe-center items-safe-center gap-2 p-2 shadow-sm`}
+              className={`w-full flex flex-col justify-safe-center items-safe-center p-2 shadow-sm`}
             >
               {item.link ? (
                 <span className="flex gap-2 justify-center items-center">
@@ -36,13 +36,13 @@ function DetailsList({ itemsArray }: DetailsListProps) {
                   <a
                     href={item.value}
                     target="blank"
-                    className={`text-indigo-50 font-black tracking-wider capitalize`}
+                    className={`font-black tracking-wider capitalize hover:cursor-pointer hover:underline hover:text-gray-300`}
                   >
                     click here to visit {item.key}
                   </a>
                 </span>
               ) : (
-                <span className="capitalize font-black tracking-wide text-indigo-100 flex justify-center items-center gap-2">
+                <span className="capitalize font-black tracking-wide flex justify-center items-center gap-2">
                   <span className="hidden md:flex">{item.key}</span>
                   {item.value}
                 </span>

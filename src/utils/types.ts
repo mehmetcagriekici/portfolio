@@ -60,7 +60,9 @@ export interface PersonalState {
 export interface DetailsState {
   id: string;
   isDetailsOn: boolean;
-  isAboutToLeave: boolean;
+  isImgOn: boolean;
+  currSrc: string;
+  isExpOn: boolean;
 }
 
 ///COMPONENT PROPS
@@ -79,8 +81,6 @@ export interface FeatureScreenProps {
 export interface FeatureDiskProps {
   //JSX.Element only in Personal
   children: React.ReactNode;
-  //styles
-  styles: { outerContainer: string; innerContainer: string };
 }
 
 export interface FeatureCardProps {
@@ -89,8 +89,6 @@ export interface FeatureCardProps {
   //data
   isLoading: boolean;
   error: string;
-  //styles
-  styles: string;
   //index
   cardIndex: number;
 }

@@ -66,11 +66,11 @@ export default function Socials({ socials }: socialProps) {
   }
 
   return (
-    <ul className="w-4/5 mt-1 p-2 border-b-2 flex flex-col gap-2 border-indigo-600">
+    <ul className="font-orb tracking-wider text-base flex flex-col gap-5">
       {socials.map((social, i) => (
-        <li key={i}>
+        <li key={i} className="flex justify-center items-center">
           {social.key === "gmail" ? (
-            <div className="relative flex gap-1 justify-center items-center shadow-sm tracking-wide font-bold">
+            <div className="relative flex gap-2 justify-center items-center w-full">
               {socialIcons[social.key].icon}
               {status &&
                 (success ? (
@@ -90,10 +90,7 @@ export default function Socials({ socials }: socialProps) {
                     {status}
                   </Alert>
                 ))}
-              <span
-                className="text-indigo-100 underline"
-                onClick={() => copyToClipboard(social.value)}
-              >
+              <span className="" onClick={() => copyToClipboard(social.value)}>
                 {social.value}
               </span>
             </div>
@@ -101,7 +98,7 @@ export default function Socials({ socials }: socialProps) {
             <a
               target="blank"
               href={social.value}
-              className="flex gap-1 justify-center items-center shadow-sm tracking-wide font-bold text-yellow-500 capitalize select-none active:text-green-500 hover:cursor-pointer"
+              className="flex gap-1 justify-center items-center shadow-sm w-full"
             >
               {socialIcons[social.key].icon}
               <span>{social.key}</span>

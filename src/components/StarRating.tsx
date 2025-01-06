@@ -23,7 +23,7 @@ type iconsObj = {
 //custom icons for rating
 const customIcons: iconsObj = {
   default: {
-    icon: <SignalWifi0BarOutlinedIcon className="text-stone-300/40" />,
+    icon: <SignalWifi0BarOutlinedIcon className="text-black/70" />,
     label: "",
   },
   1: {
@@ -63,13 +63,13 @@ function StarRating({ skill }: StarRatingProps) {
 
   return (
     <div className="flex w-full overflow-hidden justify-safe-center items-safe-center gap-3">
-      <span className="text-indigo-100 tracking-wide">{skill.skill}:</span>
-      <div className="">
+      <span className="font-orb tracking-wide">{skill.skill}:</span>
+      <div>
         <Rating
+          className="flex gap-1"
           name="skills-pre-rating"
           value={skill.rating}
           max={5}
-          size="small"
           highlightSelectedOnly
           readOnly
           IconContainerComponent={IconContainer}
