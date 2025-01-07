@@ -23,19 +23,19 @@ type socialIcons = {
 //social icons
 const socialIcons: socialIcons = {
   linkedin: {
-    icon: <LinkedInIcon className="text-cyan-500" />,
+    icon: <LinkedInIcon className="text-cyan-500" fontSize="inherit" />,
     label: "linkedin",
   },
   gmail: {
-    icon: <ContactMailIcon className="text-green-500" />,
+    icon: <ContactMailIcon className="text-green-500" fontSize="inherit" />,
     label: "gmail",
   },
   github: {
-    icon: <GitHubIcon className="text-gray-200" />,
+    icon: <GitHubIcon className="text-gray-200" fontSize="inherit" />,
     label: "github",
   },
   codewars: {
-    icon: <CodeIcon className="text-rose-500" />,
+    icon: <CodeIcon className="text-rose-500" fontSize="inherit" />,
     label: "codewars",
   },
 };
@@ -66,7 +66,7 @@ export default function Socials({ socials }: socialProps) {
   }
 
   return (
-    <ul className="font-orb tracking-wider text-base flex flex-col gap-5">
+    <ul className="font-orb tracking-wider text-base flex flex-col gap-5 md:gap-8 md:tracking-widest md:text-2xl xl:text-xl">
       {socials.map((social, i) => (
         <li key={i} className="flex justify-center items-center">
           {social.key === "gmail" ? (
@@ -98,7 +98,7 @@ export default function Socials({ socials }: socialProps) {
             <a
               target="blank"
               href={social.value}
-              className="flex gap-1 justify-center items-center shadow-sm w-full"
+              className="flex gap-1 justify-center items-center w-full"
             >
               {socialIcons[social.key].icon}
               <span>{social.key}</span>

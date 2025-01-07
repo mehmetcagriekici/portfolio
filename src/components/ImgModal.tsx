@@ -4,6 +4,7 @@ import { useDetails } from "../features/details/useDetails";
 import { useInView } from "react-intersection-observer";
 import { CircularProgress } from "@mui/material";
 import { motion } from "motion/react";
+import HideBtn from "./HideBtn";
 
 export default function ImgModal({ src }: { src: string }) {
   //image loaded
@@ -33,12 +34,7 @@ export default function ImgModal({ src }: { src: string }) {
         <CircularProgress color="inherit" className={`h-full w-full `} />
       )}
 
-      <button
-        onClick={() => closeImg()}
-        className="text-gray-200 text-xl tracking-widest capitalize border-2 rounded-full border-gray-300 p-3 bg-gray-800 hover:cursor-pointer"
-      >
-        close image
-      </button>
+      <HideBtn onClick={() => closeImg()}>close image</HideBtn>
     </motion.div>
   );
 }

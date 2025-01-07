@@ -32,7 +32,7 @@ function ExperienceDetails() {
       {/*images*/}
       <Slider imagesArray={current.images} />
 
-      <div className="tracking-wide leading-relaxed text-base text-black font-orb shadow-sm">
+      <div className="tracking-wide leading-relaxed text-base text-black font-orb md:text-2xl md:tracking-wider md:p-2 lg:text-3xl lg:tracking-widest xl:text-xl">
         <p>{current.summary}</p>
       </div>
 

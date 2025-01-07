@@ -22,13 +22,13 @@ const icons: {
 
 function DetailsList({ itemsArray }: DetailsListProps) {
   return (
-    <ul className="h-full w-full flex flex-col justify-safe-center items-safe-center gap-2 md:text-xl lg:text-2xl font-pop">
+    <ul className="h-full w-full flex flex-col justify-safe-center items-safe-center gap-2 font-orb md:text-2xl lg:text-3xl lg:gap-6 xl:text-xl xl:gap-4">
       {itemsArray.map(
         (item, i) =>
           item.value && (
             <li
               key={i}
-              className={`w-full flex flex-col justify-safe-center items-safe-center p-2 shadow-sm`}
+              className={`w-full flex flex-col justify-safe-center items-safe-center p-2`}
             >
               {item.link ? (
                 <span className="flex gap-2 justify-center items-center">

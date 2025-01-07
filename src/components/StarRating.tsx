@@ -23,27 +23,54 @@ type iconsObj = {
 //custom icons for rating
 const customIcons: iconsObj = {
   default: {
-    icon: <SignalWifi0BarOutlinedIcon className="text-black/70" />,
+    icon: (
+      <SignalWifi0BarOutlinedIcon
+        className="text-black/70"
+        fontSize="inherit"
+      />
+    ),
     label: "",
   },
   1: {
-    icon: <NetworkWifi1BarOutlinedIcon className="text-red-600" />,
+    icon: (
+      <NetworkWifi1BarOutlinedIcon
+        className="text-red-600"
+        fontSize="inherit"
+      />
+    ),
     label: "insecure",
   },
   2: {
-    icon: <NetworkWifi2BarOutlinedIcon className="text-orange-500" />,
+    icon: (
+      <NetworkWifi2BarOutlinedIcon
+        className="text-orange-500"
+        fontSize="inherit"
+      />
+    ),
     label: "uncondifent",
   },
   3: {
-    icon: <NetworkWifi3BarOutlinedIcon className="text-yellow-500" />,
+    icon: (
+      <NetworkWifi3BarOutlinedIcon
+        className="text-yellow-500"
+        fontSize="inherit"
+      />
+    ),
     label: "Neutral",
   },
   4: {
-    icon: <NetworkWifiOutlinedIcon className="text-green-500" />,
+    icon: (
+      <NetworkWifiOutlinedIcon className="text-green-500" fontSize="inherit" />
+    ),
     label: "confident",
   },
   5: {
-    icon: <SignalWifi4BarOutlinedIcon className="text-blue-500" />,
+    icon: (
+      <SignalWifi4BarOutlinedIcon
+        className="text-blue-500"
+        fontSize="inherit"
+      />
+    ),
     label: "Self Assured",
   },
 };
@@ -62,11 +89,11 @@ function StarRating({ skill }: StarRatingProps) {
   }
 
   return (
-    <div className="flex w-full overflow-hidden justify-safe-center items-safe-center gap-3">
+    <div className="flex w-full overflow-hidden justify-safe-center items-safe-center gap-3 md:text-2xl xl:text-xl">
       <span className="font-orb tracking-wide">{skill.skill}:</span>
       <div>
         <Rating
-          className="flex gap-1"
+          className="flex gap-1 md:gap-2"
           name="skills-pre-rating"
           value={skill.rating}
           max={5}
