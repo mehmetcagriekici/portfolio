@@ -90,7 +90,7 @@ export const experience_data: ExperienceData = {
         "./small_screen__safe_gossip--summary.jpg",
       ],
       summary:
-        "We love to judge people, we love to gossip, and critisize our friends behind their backs. Now imagine and application in which you can make comments about your friends behaviors, appearances and intellects, and acutally rate them with your friends. And then, after reaching a certain amount of gossip, you can see a summary with a graph and and an average of what a person is. Create a key, share it with your other friends, and together eat your other other friend alive, and save the results for certain joy.",
+        "We love to judge people, we love to gossip, and critisize our friends behind their backs. Now imagine an application in which you can make comments about your friends behaviors, appearances and intellects, and acutally rate them with your friends. And then, after reaching a certain amount of gossip, you can see a summary with a graph and and an average of what a person is. Create a key, share it with your other friends, and together eat your other other friend alive, and save the results for certain joy.",
       contributers: ["Mehmet Cagri Ekici"],
       link: "https://github.com/mehmetcagriekici/SafeGossip",
       deploy: "https://safegossip.netlify.app",
