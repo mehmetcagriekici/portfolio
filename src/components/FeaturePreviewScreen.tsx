@@ -1,18 +1,8 @@
 //imports
 import { FeatureScreenProps } from "../utils/types";
-import Error from "./Error";
-import Loader from "./Loader";
 import { motion } from "motion/react";
 
-function FeaturePreviewScreen({
-  children,
-  isLoading,
-  error,
-}: FeatureScreenProps) {
-  //after v1: data is moved to the server
-  if (isLoading) return <Loader />;
-  if (error) return <Error errorMessage={error} />;
-
+function FeaturePreviewScreen({ children }: FeatureScreenProps) {
   //details container
   //under the FeaturePreviewDisk
   return (
