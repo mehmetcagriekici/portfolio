@@ -1,8 +1,7 @@
 //Disclaimer: I used Chat GPT to build this component
 
 //imports
-import { useCallback, useEffect, useState } from "react";
-import { debounce } from "lodash";
+import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 
 //types
@@ -29,10 +28,6 @@ interface generateStarsArgs extends ScreenPositions {
 interface moveStarsArgs extends ScreenPositions {
   strs: star[];
 }
-
-//constants
-const BP_LG = 1024;
-const BP_XL = 1280;
 
 //helper functions
 //function to generate stars with a given count, and screen width and size
@@ -72,33 +67,16 @@ const moveStars = ({ strs, sh, sw }: moveStarsArgs) =>
 export default function StarField() {
   //stars
   const [stars, setStars] = useState<star[]>([]);
-  //dimensions
-  const [dimensions, setDimensions] = useState({
-    w: window.innerWidth,
-    h: window.innerHeight,
-  });
 
   //number of stars
-  const sc = dimensions.w < BP_LG ? 150 : dimensions.w < BP_XL ? 200 : 250;
+  const sc = 150;
 
-  //function to update dimensions with lodash/debounce
-  //optimized with useCallback, so it saves the function
-  const updateDimensions = useCallback(
-    debounce(
-      () => setDimensions({ w: window.innerWidth, h: window.innerHeight }),
-      100
-    ),
-    []
-  );
-
-  //to generate stars, depending on the screen size
+  //init stars
   useEffect(() => {
-    //init stars
-    setStars(generateStars({ sc, sw: dimensions.w, sh: dimensions.h }));
-    //watch dimensions
-    window.addEventListener("resize", updateDimensions);
-    return () => window.removeEventListener("resize", updateDimensions);
-  }, [dimensions, sc, updateDimensions]);
+    setStars(
+      generateStars({ sc, sw: window.innerWidth, sh: window.innerHeight })
+    );
+  }, []);
 
   //to move stars
   //using rAF to get more smooth and optimized animations
@@ -108,14 +86,18 @@ export default function StarField() {
     //callback funciton that will be used in the rAF
     const animate = () => {
       setStars((prevStars) =>
-        moveStars({ strs: prevStars, sh: dimensions.h, sw: dimensions.w })
+        moveStars({
+          strs: prevStars,
+          sh: window.innerHeight,
+          sw: window.innerWidth,
+        })
       );
       animationFrameId = requestAnimationFrame(animate); //animation loop, recursion
     };
     animationFrameId = requestAnimationFrame(animate); //init animation
 
     return () => cancelAnimationFrame(animationFrameId);
-  }, [dimensions]);
+  }, []);
 
   return (
     <div className="absolute z-0 h-screen w-screen overflow-hidden bg-stone-800/25">

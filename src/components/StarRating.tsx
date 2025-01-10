@@ -34,7 +34,7 @@ const customIcons: iconsObj = {
   1: {
     icon: (
       <NetworkWifi1BarOutlinedIcon
-        className="text-red-600"
+        className="text-gray-600"
         fontSize="inherit"
       />
     ),
@@ -43,7 +43,7 @@ const customIcons: iconsObj = {
   2: {
     icon: (
       <NetworkWifi2BarOutlinedIcon
-        className="text-gray-500"
+        className="text-red-600"
         fontSize="inherit"
       />
     ),
@@ -52,26 +52,26 @@ const customIcons: iconsObj = {
   3: {
     icon: (
       <NetworkWifi3BarOutlinedIcon
-        className="text-pink-500"
+        className="text-rose-600"
         fontSize="inherit"
       />
     ),
-    label: "Neutral",
+    label: "neutral",
   },
   4: {
     icon: (
-      <NetworkWifiOutlinedIcon className="text-green-500" fontSize="inherit" />
+      <NetworkWifiOutlinedIcon className="text-purple-600" fontSize="inherit" />
     ),
     label: "confident",
   },
   5: {
     icon: (
       <SignalWifi4BarOutlinedIcon
-        className="text-blue-500"
+        className="text-blue-600"
         fontSize="inherit"
       />
     ),
-    label: "Self Assured",
+    label: "self assured",
   },
 };
 

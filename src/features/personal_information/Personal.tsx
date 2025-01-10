@@ -49,10 +49,10 @@ function Personal() {
         <HideBtn onClick={onClick}>Show Projects</HideBtn>
         {/*Image:avatar, name, age ,country*/}
         <motion.section
-          className="w-full min-h-[30%] overflow-hidden flex items-center justify-center bg-yellow-500/90 gap-2 p-3 rounded-lg md:rounded-full lg:rounded-xl md:w-4/5 lg:w-4/6 xl:w-1/2"
-          initial={{ x: -10000 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 0.5, delay: 0 }}
+          className="w-full min-h-[30%] overflow-hidden flex items-center justify-center bg-yellow-500/90 gap-2 p-3 rounded-lg md:rounded-full lg:rounded-xl md:w-4/5 lg:w-4/6 xl:w-1/3"
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.3, delay: 0 }}
         >
           <div className="h-4/5">
             <img
@@ -60,7 +60,7 @@ function Personal() {
               className="h-full w-full object-cover rounded-full"
             />
           </div>
-          <div className="font-orb flex flex-col gap-2 text-base tracking-wide md:text-2xl lg:text-3xl lg:gap-4 ">
+          <div className="font-orb flex flex-col gap-2 text-base tracking-wide md:text-2xl lg:text-3xl lg:gap-4 xl:text-xl">
             <span>{name}</span>
             <span>{age}</span>
             <span>{country}</span>
@@ -68,28 +68,28 @@ function Personal() {
         </motion.section>
         {/*socials*/}
         <motion.section
-          className="w-full min-h-[30%] overflow-hidden flex flex-col items-center justify-center bg-yellow-500/90 gap-2 rounded-lg font-orb text-base  md:w-4/5 md:min-h-[25%] md:rounded-full lg:rounded-xl lg:w-4/6 xl:w-1/2"
-          initial={{ x: 10000 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
+          className="w-full min-h-[30%] overflow-hidden flex flex-col items-center justify-center bg-yellow-500/90 gap-2 rounded-lg font-orb text-base  md:w-4/5 md:min-h-[25%] md:rounded-full lg:rounded-xl lg:w-4/6 xl:w-1/3"
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.3, delay: 0.3 }}
         >
           <Socials socials={socials} />
         </motion.section>
         {/*skills, spoken languages*/}
         <motion.section
-          className="w-full min-h-[55%] overflow-hidden flex flex-col items-center justify-center bg-yellow-500/90 gap-2 rounded-lg font-orb text-base md:rounded-full lg:rounded-xl md:w-4/5 md:min-h-[45%] lg:w-4/6 lg:min-h-[30%] xl:w-1/2 xl:min-h-[50%]"
-          initial={{ y: 10000 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.5, delay: 1 }}
+          className="w-full min-h-[55%] overflow-hidden flex flex-col items-center justify-center bg-yellow-500/90 rounded-lg font-orb text-base p-3 md:rounded-full lg:rounded-xl md:w-4/5 md:min-h-[45%] lg:w-4/6 lg:min-h-[30%] xl:w-1/3 xl:min-h-[50%]"
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.3, delay: 0.6 }}
         >
-          <div className="flex flex-col gap-1">
+          <div className="h-full w-full flex flex-col justify-center items-center gap-1">
             {skills.map((skill, i) => (
               <StarRating skill={skill} key={i} />
             ))}
+            <PersonalText>
+              I speak {CONVERT_LIST_TO_STR(spokenLanguages)}
+            </PersonalText>
           </div>
-          <PersonalText>
-            I speak {CONVERT_LIST_TO_STR(spokenLanguages)}
-          </PersonalText>
         </motion.section>
       </FeaturePreviewDisk>
     );
