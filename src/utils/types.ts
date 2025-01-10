@@ -1,28 +1,41 @@
 //imports
 import React from "react";
 
-interface DataCore {
-  id: string;
+///FEATURE EXPERIENCE
+export interface ExperienceCard {
+  key: string;
   name: string;
   date: string;
+  technologies: { [key: string]: string };
 }
 
-///FEATURE EXPERIENCE
-export interface ExperienceCard extends DataCore {
+export interface AppExperienceCard {
+  key: string;
+  name: string;
+  date: string;
   technologies: string[];
 }
 
-interface ExperinceScreen extends ExperienceCard {
+export interface ExperinceDetails extends ExperienceCard {
+  images: { [key: string]: string };
+  summary: string;
+  contributers: { [key: string]: string };
+  link: string;
+  deploy: string;
+}
+
+export interface AppExperienceDetails extends AppExperienceCard {
   images: string[];
   summary: string;
   contributers: string[];
   link: string;
   deploy: string;
+
 }
 
 export interface ExperienceData {
-  cards: { [key: string]: ExperienceCard };
-  screens: { [key: string]: ExperinceScreen };
+  cards: ExperienceCard[] | null;
+  details: ExperinceDetails[] | undefined;
 }
 
 export interface ExperienceState {
@@ -30,26 +43,15 @@ export interface ExperienceState {
 }
 
 ///FEATURE PERSONAL
-interface PersonalCard {
+export interface PersonalData {
   name: string;
   age: number;
   country: string;
-  id: string;
-}
-
-interface PersonalScreen {
-  id: string;
-  photo: string;
-  me: { key: string; value: string }[];
+  feature: string;
   skills: { skill: string; rating: number }[];
   spoken_languages: string[];
-  hobbies: string[];
-  socials: { key: string; value: string }[];
-}
-
-export interface PersonalData {
-  card: PersonalCard;
-  screen: PersonalScreen;
+  avatar: string;
+  socials: { key: string; value: string }[]
 }
 
 export interface PersonalState {
@@ -66,16 +68,9 @@ export interface DetailsState {
 }
 
 ///COMPONENT PROPS
-export type absolutePositions = {
-  bottom: string;
-  left: string;
-  transform: string;
-};
 
 export interface FeatureScreenProps {
   children: React.ReactNode;
-  isLoading: boolean;
-  error: string;
 }
 
 export interface FeatureDiskProps {
@@ -86,9 +81,6 @@ export interface FeatureDiskProps {
 export interface FeatureCardProps {
   children: React.ReactNode;
   onClick: () => void;
-  //data
-  isLoading: boolean;
-  error: string;
   //index
   cardIndex: number;
 }
@@ -122,7 +114,6 @@ export interface ErrorProps {
 
 export interface CardButtonProps {
   feature: string;
-  position: absolutePositions;
   onClick: () => void;
 }
 

@@ -1,36 +1,14 @@
 //imports
-import { useEffect, useState } from "react";
-import { ExperienceData } from "../../utils/types";
+import { useQuery } from "@tanstack/react-query";
 import { getExperienceData } from "../../services/experience/getExperienceData";
-import { EXPERIENCE_DATA_FETCH_ERROR } from "../../utils/constants";
 
-//will be updated with tanstack
-//afer v1 (the server is built)
+//app data management
+//tanstack query
 export function useExperienceData() {
-  const [data, setData] = useState<null | ExperienceData>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
+  const{ data, error, isLoading } = useQuery(
+     { queryKey: ["experience_data"],
+       queryFn: getExperienceData 
+   })
 
-  useEffect(() => {
-    const getData = async () => {
-      setIsLoading(true);
-      try {
-        const result = await getExperienceData();
-        if (result) {
-          setData(result);
-        } else {
-          setError(EXPERIENCE_DATA_FETCH_ERROR);
-          throw new Error(EXPERIENCE_DATA_FETCH_ERROR);
-        }
-      } catch (err) {
-        throw new Error(`${err}`);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    getData();
-  }, []);
-
-  return { data, isLoading, error };
+   return { data, error, isLoading }
 }

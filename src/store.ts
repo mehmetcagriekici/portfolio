@@ -1,13 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-
-import experienceReducer from "./features/experience/experienceSlice";
-import personalReducer from "./features/personal_information/personalSlice";
 import detailsReducer from "./features/details/detailsSlice";
 
 export const store = configureStore({
   reducer: {
-    experience: experienceReducer,
-    personal: personalReducer,
     details: detailsReducer,
   },
 });

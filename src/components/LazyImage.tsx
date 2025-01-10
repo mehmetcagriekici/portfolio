@@ -5,6 +5,7 @@ import { useInView } from "react-intersection-observer";
 import { motion } from "motion/react";
 import { useDetails } from "../features/details/useDetails";
 
+//for multiple images
 export default function LazyImage({ src }: { src: string }) {
   //image modal
   const { openImg } = useDetails();
@@ -19,7 +20,7 @@ export default function LazyImage({ src }: { src: string }) {
   return (
     <motion.li
       ref={ref}
-      className="flex justify-center items-center h-full min-w-[100%] hover:cursor-pointer"
+      className="flex justify-center items-center h-full min-w-[100%] rounded hover:cursor-pointer"
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       transition={{ duration: 0.3 }}

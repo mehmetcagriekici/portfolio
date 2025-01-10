@@ -1,19 +1,13 @@
 //imports
 import { FeatureCardProps } from "../utils/types";
-import Error from "./Error";
-import Loader from "./Loader";
 import { motion } from "motion/react";
 
 function FeaturePreviewCard({
   children,
   onClick,
-  isLoading,
-  cardIndex,
-  error,
-}: FeatureCardProps) {
-  if (isLoading) return <Loader />;
-  if (error) return <Error errorMessage={error} />;
 
+  cardIndex,
+}: FeatureCardProps) {
   return (
     <motion.div
       initial={{ scale: 0 }}

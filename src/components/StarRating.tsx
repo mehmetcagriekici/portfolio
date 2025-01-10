@@ -43,7 +43,7 @@ const customIcons: iconsObj = {
   2: {
     icon: (
       <NetworkWifi2BarOutlinedIcon
-        className="text-orange-500"
+        className="text-gray-500"
         fontSize="inherit"
       />
     ),
@@ -52,7 +52,7 @@ const customIcons: iconsObj = {
   3: {
     icon: (
       <NetworkWifi3BarOutlinedIcon
-        className="text-yellow-500"
+        className="text-pink-500"
         fontSize="inherit"
       />
     ),

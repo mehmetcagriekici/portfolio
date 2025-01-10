@@ -1,17 +1,23 @@
 //imports
 import CardList from "../../components/CardList";
+import Error from "../../components/Error";
 import FeaturePreviewCard from "../../components/FeaturePreviewCard";
 import FeaturePreviewDisk from "../../components/FeaturePreviewDisk";
 import HideBtn from "../../components/HideBtn";
+import Loader from "../../components/Loader";
 import { CONVERT_LIST_TO_STR } from "../../utils/helpers";
 import { useDetails } from "../details/useDetails";
 import ExperienceDetails from "./ExperienceDetails";
 import { useExperience } from "./useExperience";
+import { useExperienceData } from "./useExperienceData";
 
 function Experience() {
-  //experience data from the app state
-  const { experienceData, showExperienceDetails, error, isLoading } =
-    useExperience();
+  //experience data
+  const { data, error, isLoading } = useExperienceData();
+
+  //ui experience app state
+  const { showExperienceDetails } = useExperience();
+
   //details
   const { isDetailsOn, openPersonal } = useDetails();
 
@@ -24,34 +30,38 @@ function Experience() {
     openPersonal();
   }
 
-  const cardsArray = Object.values(experienceData.cards);
+  if (error) return <Error errorMessage={error.message} />;
+  if (isLoading) return <Loader />;
 
-  return (
-    <FeaturePreviewDisk>
-      {isDetailsOn || (
-        <HideBtn onClick={backToProfile}>Back to profile</HideBtn>
-      )}
-      {isDetailsOn ||
-        cardsArray.map((card, i) => (
-          <FeaturePreviewCard
-            key={i}
-            isLoading={isLoading}
-            error={error}
-            onClick={() => onClick(card.id)}
-            cardIndex={i}
-          >
-            <CardList
-              itemsArray={[
-                card.name,
-                CONVERT_LIST_TO_STR(card.technologies),
-                card.date,
-              ]}
-            />
-          </FeaturePreviewCard>
-        ))}
-      {isDetailsOn && <ExperienceDetails />}
-    </FeaturePreviewDisk>
-  );
+  if (data) {
+    //destructure data
+    const { cards } = data;
+
+    return (
+      <FeaturePreviewDisk>
+        {isDetailsOn || (
+          <HideBtn onClick={backToProfile}>Back to profile</HideBtn>
+        )}
+        {isDetailsOn ||
+          cards.map((card, i) => (
+            <FeaturePreviewCard
+              key={i}
+              onClick={() => onClick(card.key)}
+              cardIndex={i}
+            >
+              <CardList
+                itemsArray={[
+                  card.name,
+                  CONVERT_LIST_TO_STR(card.technologies),
+                  card.date,
+                ]}
+              />
+            </FeaturePreviewCard>
+          ))}
+        {isDetailsOn && <ExperienceDetails />}
+      </FeaturePreviewDisk>
+    );
+  }
 }
 
 export default Experience;

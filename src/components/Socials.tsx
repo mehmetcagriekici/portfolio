@@ -66,7 +66,7 @@ export default function Socials({ socials }: socialProps) {
   }
 
   return (
-    <ul className="font-orb tracking-wider text-base flex flex-col gap-5 md:gap-8 md:tracking-widest md:text-2xl xl:text-xl">
+    <ul className="font-orb tracking-wider text-base flex flex-col gap-5 md:tracking-widest md:text-2xl xl:text-xl">
       {socials.map((social, i) => (
         <li key={i} className="flex justify-center items-center">
           {social.key === "gmail" ? (
