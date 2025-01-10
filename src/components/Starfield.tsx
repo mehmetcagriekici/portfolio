@@ -66,17 +66,9 @@ const moveStars = ({ strs, sh, sw }: moveStarsArgs) =>
 //component
 export default function StarField() {
   //stars
-  const [stars, setStars] = useState<star[]>([]);
-
-  //number of stars
-  const sc = 150;
-
-  //init stars
-  useEffect(() => {
-    setStars(
-      generateStars({ sc, sw: window.innerWidth, sh: window.innerHeight })
-    );
-  }, []);
+  const [stars, setStars] = useState<star[]>(
+    generateStars({ sc: 150, sw: window.innerWidth, sh: window.innerHeight })
+  );
 
   //to move stars
   //using rAF to get more smooth and optimized animations
