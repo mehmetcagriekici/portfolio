@@ -40,7 +40,7 @@ function Experience() {
     return (
       <FeaturePreviewDisk>
         {isDetailsOn || (
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div className="xl:absolute xl:top-1/2 xl:left-1/2 xl:-translate-x-1/2 xl:-translate-y-1/2">
             <HideBtn onClick={backToProfile}>Back to profile</HideBtn>
           </div>
         )}

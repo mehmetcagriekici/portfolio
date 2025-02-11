@@ -16,7 +16,7 @@ const icons: {
   },
   netlify: {
     icon: <OpenInBrowserIcon className="text-yellow-300" />,
-    label: "netlify",
+    label: "hosting",
   },
 };
 
