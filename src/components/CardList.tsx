@@ -7,7 +7,7 @@ function CardList({ itemsArray }: CardListProps) {
       {itemsArray.map((item, i) => (
         <li
           key={i}
-          className="text-md tracking-widest w-full md:text-2xl lg:text-3xl xl:text-xl"
+          className="text-md tracking-widest w-full md:text-2xl lg:text-3xl xl:text-xl xl:tracking-normal"
         >
           {item}
         </li>

@@ -40,7 +40,9 @@ function Experience() {
     return (
       <FeaturePreviewDisk>
         {isDetailsOn || (
-          <HideBtn onClick={backToProfile}>Back to profile</HideBtn>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            <HideBtn onClick={backToProfile}>Back to profile</HideBtn>
+          </div>
         )}
         {isDetailsOn ||
           cards.map((card, i) => (
