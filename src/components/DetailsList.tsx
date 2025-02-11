@@ -14,7 +14,7 @@ const icons: {
     icon: <GitHubIcon className="text-stone-300" />,
     label: "github",
   },
-  netlify: {
+  website: {
     icon: <OpenInBrowserIcon className="text-yellow-300" />,
     label: "hosting",
   },

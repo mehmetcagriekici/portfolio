@@ -57,7 +57,7 @@ function ExperienceDetails() {
                 link: false,
               },
               { key: "github", value: current.link, link: true },
-              { key: "hosting", value: current.deploy, link: true },
+              { key: "website", value: current.deploy, link: true },
             ]}
           />
           <HideBtn onClick={onClick}>hide details</HideBtn>
