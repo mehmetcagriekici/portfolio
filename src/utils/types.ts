@@ -76,6 +76,7 @@ export interface FeatureScreenProps {
 export interface FeatureDiskProps {
   //JSX.Element only in Personal
   children: React.ReactNode;
+  extraClasses?:string
 }
 
 export interface FeatureCardProps {

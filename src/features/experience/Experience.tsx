@@ -38,7 +38,7 @@ function Experience() {
     const { cards } = data;
 
     return (
-      <FeaturePreviewDisk>
+      <FeaturePreviewDisk extraClasses="xl:flex-row xl:flex-wrap xl:gap-5">
         {isDetailsOn || (
           <div className="xl:absolute xl:top-1/2 xl:left-1/2 xl:-translate-x-1/2 xl:-translate-y-1/2">
             <HideBtn onClick={backToProfile}>Back to profile</HideBtn>
